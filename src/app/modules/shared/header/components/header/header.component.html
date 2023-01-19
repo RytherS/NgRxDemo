@@ -1,0 +1,12 @@
+<ng-container *ngrxLet="{
+    user: user$,
+    loading: loading$
+} as pageData">
+
+    <div class="header">
+        <h1 class="header__title">NgRx Demo</h1>
+        <p class="header__greeting" *ngIf="pageData.user">Hello, {{pageData.user!.name}}</p>
+        <button class="header__login-button" [disabled]="pageData.loading || pageData.user" (click)="loginClicked()">Login</button>
+    </div>
+
+</ng-container>

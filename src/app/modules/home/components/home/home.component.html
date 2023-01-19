@@ -1,0 +1,26 @@
+<ng-container *ngrxLet="{
+    orgFeed: orgFeed$,
+    personalFeed: personalFeed$,
+    loadingFeeds: loadingFeeds$,
+    user: user$
+} as pageData">
+
+    <h1>Welcome!</h1>
+    <h2>Here's your feed.</h2>
+
+    <!--Could also split up loading between org and personal, but for the sake of simple markup I left it at one.-->
+    <!--Maybe a good live demo example?-->
+    <loading-spinner *ngIf="pageData.loadingFeeds; else feed"></loading-spinner>
+
+    <ng-template #feed>
+        <h3>Org</h3>
+        <post *ngFor="let post of pageData.orgFeed" [post]="post"></post>
+    
+        <div *ngIf="pageData.user">
+            <h3>Personal</h3>
+            <h4>(We think you'll really like these, {{pageData.user!.name}}. We picked them just for you!)</h4>
+            <post *ngFor="let post of pageData.personalFeed" [post]="post"></post>
+        </div>
+    </ng-template>
+
+</ng-container>

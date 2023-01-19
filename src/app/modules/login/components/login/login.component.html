@@ -1,0 +1,13 @@
+<ng-container *ngrxLet="{
+    loading: loading$
+} as pageData">
+
+    <h1>Welcome!</h1>
+    <h2>Click the button below to login.</h2>
+    
+    <button [disabled]="pageData.loading" (click)="loginClicked()">Login</button>
+
+    <h2>Click this one if you'd like to browse without an account.</h2>
+    <button (click)="proceedWithoutAccountClicked()">Proceed without account.</button>
+
+</ng-container>

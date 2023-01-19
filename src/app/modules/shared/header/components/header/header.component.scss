@@ -1,0 +1,21 @@
+.header {
+    padding: 10px;
+    border-bottom: 2px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    &__greeting {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    &__login-button {
+        height: min-content;
+    }
+}
