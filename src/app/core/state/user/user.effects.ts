@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Router } from "@angular/router";
-import { catchError, from, map, of, switchMap } from "rxjs";
+import { catchError, map, of, switchMap, tap } from "rxjs";
 import { UserService } from "../../services";
 import { ErrorActions } from "../error";
 import { UserActions } from ".";
@@ -33,17 +33,13 @@ export class UserEffects {
         )
     });
 
-    routeUserToHome$ = createEffect(() => {
-        return this.actions$.pipe(
+    routeUserToHome$ = createEffect(() =>
+        this.actions$.pipe(
             ofType(UserActions.userLoadSuccess),
-            switchMap(() => {
-                return from(this.router.navigate(['/home']))
-                .pipe(
-                  switchMap(x => of(UserActions.NO_ACTION()))
-                );
-            })
-        )
-    });
+            tap(() => this.router.navigate(['/home']))
+        ),
+        { dispatch: false }
+    );
 
     throwUserLoadError$ = createEffect(() => {
         return this.actions$.pipe(

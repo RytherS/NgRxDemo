@@ -20,15 +20,11 @@ export const homeReducer = createReducer(
             personalFeed: actionData.personalFeed
         }
     }),
+
     on(
         HomeActions.feedsLoadFailure,
         UserActions.userLoadFailure,
-        (state) => {
-        return {
-            ...state,
-            loading: false,
-            orgFeed: [],
-            personalFeed: []
-        }
+        () => {
+        return { ...initialHomeState }
     })
 );

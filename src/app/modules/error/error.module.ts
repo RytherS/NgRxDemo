@@ -4,7 +4,6 @@ import { ErrorComponent } from './components/error/error.component';
 import { RouterModule } from '@angular/router';
 
 
-
 @NgModule({
   declarations: [
     ErrorComponent

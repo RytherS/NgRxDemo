@@ -12,10 +12,18 @@ export const userReducer = createReducer(
             return { ...state, loading: true };
         }
     ),
-    on(UserActions.userLoadSuccess, (state, { user }) => {
-        return { ...state, loading: false, currentUser: user };
-    }),
-    on(UserActions.userLoadFailure, (state) => {
-        return { ...state, loading: false, currentUser: undefined };
-    })
+
+    on(
+        UserActions.userLoadSuccess,
+        (state, { user }) => {
+            return { ...state, loading: false, currentUser: user };
+        }
+    ),
+
+    on(
+        UserActions.userLoadFailure,
+        (state) => {
+            return { ...state, loading: false, currentUser: undefined };
+        }
+    )
 );

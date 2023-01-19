@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   constructor(private store: Store) { }
 
   public ngOnInit(): void {
+    // Todo: Create selector for just name
     this.user$ = this.store.select(UserSelectors.getUser);
     this.loading$ = this.store.select(UserSelectors.getLoading);
   }

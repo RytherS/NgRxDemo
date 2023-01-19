@@ -7,3 +7,8 @@ export const getErrorMessage = createSelector(
     getErrorState,
     (errorState) => errorState.message
 );
+
+export const getErrorSource = createSelector(
+    getErrorState,
+    (errorState) => errorState.source
+);

@@ -1,4 +1,4 @@
-
+// Service used by other services to simulate latency
 export class DelayService {
 
   constructor() { }

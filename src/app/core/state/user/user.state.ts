@@ -1,5 +1,6 @@
 import { User } from "../../models";
 
+
 export interface UserState {
     currentUser?: User,
     loading: boolean

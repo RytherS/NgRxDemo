@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HeaderModule } from './modules/shared/header/header.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -21,6 +22,7 @@ import { HeaderModule } from './modules/shared/header/header.module';
     HeaderModule,
     StoreModule.forRoot(),
     EffectsModule.forRoot(),
+    // https://ngrx.io/guide/store-devtools/config
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode

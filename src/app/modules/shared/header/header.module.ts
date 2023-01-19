@@ -4,7 +4,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { LetModule } from '@ngrx/component';
 
 
-
 @NgModule({
   declarations: [
     HeaderComponent

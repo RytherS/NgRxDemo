@@ -3,8 +3,8 @@ import { delay, Observable, of } from 'rxjs';
 import { DataModel, mockPersonalDataModelList, mockOrgDataModelList } from '../models';
 import { DelayService } from './delay.service';
 
-// This is a mock data service that mimics something like an API request for record data
 
+// Mock data service that mimics something like an API request for record data
 @Injectable({
   providedIn: 'root'
 })
