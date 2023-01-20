@@ -6,7 +6,6 @@
     <div class="header">
         <h1 class="header__title">NgRx Demo</h1>
         <p class="header__greeting" *ngIf="pageData.user">Hello, {{pageData.user!.name}}</p>
-        <!--Todo: create mock error button-->
         <span>
             <button (click)="mockErrorClicked()">(Mock Error)</button>
             <button class="header__login-button" [disabled]="pageData.loading || pageData.user" (click)="loginClicked()">Login</button>
