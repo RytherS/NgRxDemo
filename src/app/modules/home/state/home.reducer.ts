@@ -12,19 +12,23 @@ export const homeReducer = createReducer(
         return { ...state, loading: true };
     }),
 
-    on(HomeActions.feedsLoadSuccess, (state, actionData) => {
-        return {
-            ...state,
-            loading: false,
-            orgFeed: actionData.orgFeed,
-            personalFeed: actionData.personalFeed
+    on(
+        HomeActions.feedsLoadSuccess,
+        (state, actionData) => {
+            return {
+                ...state,
+                loading: false,
+                orgFeed: actionData.orgFeed,
+                personalFeed: actionData.personalFeed
+            }
         }
-    }),
+    ),
 
     on(
         HomeActions.feedsLoadFailure,
         UserActions.userLoadFailure,
-        () => {
-        return { ...initialHomeState }
-    })
+        (_) => {
+            return { ...initialHomeState }
+        }
+    )
 );

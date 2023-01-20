@@ -75,6 +75,7 @@ export class HomeEffects {
                     isError: true,
                     source: "DataService",
                     message: "Failed to load feed(s).",
+                    routeToErrorPage: true,
                     data: errorAction.error
                 }
             })))

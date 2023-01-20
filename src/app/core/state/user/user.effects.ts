@@ -22,12 +22,8 @@ export class UserEffects {
             ofType(UserActions.loginPageUserLoginClicked, UserActions.headerUserLoginClicked),
             switchMap(() => {
                 return this.userService.getCurrentUser().pipe(
-                    map((user) => {
-                        return UserActions.userLoadSuccess({ user });
-                    }),
-                    catchError((error) => {
-                        return of(UserActions.userLoadFailure({ error }));
-                    })
+                    map((user) => UserActions.userLoadSuccess({ user })),
+                    catchError((error) => of(UserActions.userLoadFailure({ error })))
                 );
             })
         )
@@ -44,16 +40,16 @@ export class UserEffects {
     throwUserLoadError$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(UserActions.userLoadFailure),
-            switchMap((action) => {
-                return of(ErrorActions.setError({ 
+            switchMap((action) => of(ErrorActions.setError({ 
                     error: {
                         isError: true,
                         source: "Login",
                         message: "There was an error logging in. Please try again later.",
+                        routeToErrorPage: true,
                         data: action.error
                     }
                 }))
-            })
+            )
         )
     });
 }

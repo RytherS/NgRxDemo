@@ -1,3 +1,9 @@
-<h1>Oops! Something went wrong!</h1>
-<p></p>
-<p>Please try again later.</p>
+<ng-container *ngrxLet = "{
+    errorMessage: errorMessage$,
+    errorSouce: errorSource$
+} as pageData">
+    <h1>Oops! Something went wrong!</h1>
+    <p>{{pageData.errorMessage}}</p>
+    <p>Please try again later.</p>
+    <button (click)="logErrorSourceClicked()">Log Source</button>
+</ng-container>

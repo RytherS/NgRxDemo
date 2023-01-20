@@ -6,6 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CORE_FEATURE_KEY } from './state/core.state';
 import { coreReducer } from './state/core.reducer';
 import { coreEffects } from './state/core.effects';
+import { NetworkErrorSimulationService } from './services/network-error-simulation.service';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { coreEffects } from './state/core.effects';
   ],
   providers: [
     UserService,
-    DataService
+    DataService,
+    NetworkErrorSimulationService
   ]
 })
 export class CoreModule { }
