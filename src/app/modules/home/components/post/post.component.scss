@@ -1,6 +1,18 @@
+$shadow-size: 1px;
+
 .post {
     margin: 10px;
     padding: 10px;
-    border: 1px solid grey;
     width: 300px;
+    border: 2px solid grey;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: 0.2s ease;
+}
+
+.post:hover {
+    scale: 1.05;
+    // animating box shadow isn't great for performance, but I didn't want to waste even more time doing it the "correct" way while just having fun hehe
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    border-color: lightblue;
 }
