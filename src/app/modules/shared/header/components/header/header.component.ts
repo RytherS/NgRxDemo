@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/core/models';
@@ -16,11 +17,18 @@ export class HeaderComponent implements OnInit {
   public user$!: Observable<User | null>;
   public loading$!: Observable<boolean>;
 
-  constructor(private store: Store) { }
+  constructor(
+    private store: Store,
+    private router: Router
+  ) { }
 
   public ngOnInit(): void {
     this.user$ = this.store.select(UserSelectors.getUser);
     this.loading$ = this.store.select(UserSelectors.getLoading);
+  }
+
+  public headerLogoClicked(): void {
+    this.router.navigate(['home']);
   }
 
   public loginClicked(): void {

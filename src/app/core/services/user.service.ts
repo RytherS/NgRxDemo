@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { delay, Observable, of, throwError } from 'rxjs';
-import { User, mockUser } from '../models';
 import { DelayService } from './delay.service';
 import { NetworkErrorSimulationService } from './network-error-simulation.service';
+import {
+  User,
+  mockUser1
+} from '../models';
 
 
 // Mock data service that mimics something like an API request for record data
@@ -16,7 +19,7 @@ export class UserService {
   public getCurrentUser(): Observable<User> {
     try {
       NetworkErrorSimulationService.simulateNetworkErrorChance();
-      return of(mockUser).pipe(delay(DelayService.getRandomWaitTime()));
+      return of(mockUser1).pipe(delay(DelayService.getRandomWaitTime()));
     }
     catch (e) {
       return throwError(() => e);

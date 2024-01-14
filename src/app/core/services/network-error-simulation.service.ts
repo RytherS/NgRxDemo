@@ -6,7 +6,7 @@ export class NetworkErrorSimulationService {
     constructor() { }
   
     public static simulateNetworkErrorChance() {
-      const simulateError = Math.random() < 0.1;
+      const simulateError = Math.random() < 0.05;
       if (simulateError) throw new Error("SIMULATED NETWORK ERROR");
     }
   }

@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { CommonModule } from '@angular/common';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HeaderModule } from './modules/shared/header/header.module';
+import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 
 
 @NgModule({
@@ -20,7 +21,10 @@ import { HeaderModule } from './modules/shared/header/header.module';
     AppRoutingModule,
     CoreModule,
     HeaderModule,
-    StoreModule.forRoot(),
+    StoreModule.forRoot({
+      router: routerReducer
+    }),
+    StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot(),
     // https://ngrx.io/guide/store-devtools/config
     StoreDevtoolsModule.instrument({
