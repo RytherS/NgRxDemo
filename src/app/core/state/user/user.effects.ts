@@ -40,7 +40,7 @@ export class UserEffects {
     throwUserLoadError$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(UserActions.userLoadFailure),
-            switchMap((action) => of(ErrorActions.setError({ 
+            switchMap((action) => of(ErrorActions.setError({
                     error: {
                         isError: true,
                         source: "Login",

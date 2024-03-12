@@ -1,32 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import * as HomeSelectors from "../../state/home.selectors";
-import * as HomeActions from "../../state/home.actions";
-import { DataModel, User } from 'src/app/core/models';
-import { UserSelectors } from 'src/app/core/state/user';
+import { HomeStateService } from '../../services/home-state.service';
+import { HomeVM } from '../../models';
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [ HomeStateService ] // HomeStateService should be a transient service used only with this component
 })
 export class HomeComponent implements OnInit {
-  public personalFeed$!: Observable<DataModel[]>;
-  public orgFeed$!: Observable<DataModel[]>;
-  public user$!: Observable<User | null>;
-  public loadingFeeds$!: Observable<boolean>;
+  public vm$: Observable<HomeVM> = this.homeStateService.homeVm$;
 
-  constructor(private store: Store) { }
+  constructor(private homeStateService: HomeStateService) { }
 
   public ngOnInit(): void {
-    this.store.dispatch(HomeActions.homePageInitialized());
-
-    this.user$ = this.store.select(UserSelectors.getUser);
-    this.loadingFeeds$ = this.store.select(HomeSelectors.getLoading);
-    this.personalFeed$ = this.store.select(HomeSelectors.getPersonalFeed);
-    this.orgFeed$ = this.store.select(HomeSelectors.getOrgFeed);
+    this.homeStateService.loadFeeds();
   }
 
 }

@@ -14,8 +14,8 @@ export const errorReducer = createReducer(
 
     on(
         ErrorActions.clearError,
-        (_) => { 
-            return {...initialErrorState}
+        (_) => {
+            return { ...initialErrorState }
         }
     )
 );
