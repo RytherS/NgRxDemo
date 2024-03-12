@@ -17,7 +17,7 @@ export class ErrorComponent implements OnInit {
   constructor(private store: Store) { }
 
   public ngOnInit(): void {
-    // Maybe there is a guard for this component that gets current error state and reroutes to home (or enters default error message) if if error state is invalid/empty?
+    // Maybe there is a guard for this component that gets current error state and reroutes to home (or enters default error message) if error state is invalid/empty?
     // (i.e. error page is directly routed to in address bar)
     this.errorMessage$ = this.store.select(ErrorSelectors.getErrorMessage);
     this.errorSource$ = this.store.select(ErrorSelectors.getErrorSource).pipe(

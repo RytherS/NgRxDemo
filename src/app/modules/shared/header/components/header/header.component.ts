@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
 
   public mockErrorClicked(): void {
     this.store.dispatch(ErrorActions.setError({
-        error: {
+        error: <ErrorState>{
           isError: true,
           message: "Hey, don't blame me. You asked for this!",
           routeToErrorPage: true,

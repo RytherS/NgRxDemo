@@ -7,7 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CoreModule } from './core/core.module';
 import { CommonModule } from '@angular/common';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { HeaderModule } from './modules/shared/header/header.module';
+import { HeaderModule } from './modules/shared';
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 
 
